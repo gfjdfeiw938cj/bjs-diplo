@@ -1,10 +1,22 @@
+"use strict"
 
-// Недоделанно. Недоконца понимаю сути задания диплома, если она заключается активация методов уже написанного кода из директории api где идет запрос на созданный мой сервер 8000? 
+const userForm = new UserForm();
 
-const { response } = require("express");
+loginDetails
+userForm.loginFormCallback = function(loginData) {
+	let loginCallback = (loginResponse) => {
+			if (!loginResponse.success) {
+				this.setLoginErrorMessage('Ошибка при вводе данных или введенный вами идентификатор пользователя не существует!');
+			} else location.reload();
+	};
+	ApiConnector.login(loginData, loginCallback);
+}
 
-let userForm = new UserForm();
-userForm.loginFormCallback = data => console.log(data)
-data => console.log(data)
-
-ApiConnector.login({login: "oleg@demo.ru", password: "demo"}, response => console.log(response))
+userForm.registerFormCallback = function(registerData) {
+	let registerCallback = (registerResponse) => {
+			if (!registerResponse.success) {
+				this.setRegisterErrorMessage('Данные введены не правильно, проверьте правильно ли вы указали свои данные!');
+			} else location.reload();
+			};
+	ApiConnector.register(registerData, registerCallback);
+}
