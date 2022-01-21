@@ -2,7 +2,7 @@
 
 const userForm = new UserForm();
 
-loginDetails
+
 userForm.loginFormCallback = function(loginData) {
 	let loginCallback = (loginResponse) => {
 			if (!loginResponse.success) {
