@@ -8,12 +8,25 @@
 </head>
 <body>
     <script>
-        let userForm = new UserForm();
-        userForm.loginFormCallbak = data => console.log(data)
-        data => console.log(data)
-        userFormCallbac = data => console.log(data)
-        data => console.log(data)
-        userForm.loginFormCallbak = data => console.log(JSON.stringify(data))
+class User {
+    constructor(arg){
+       this.number = arg
+       this.loginFormCallback = (f) => f;
+       this.metod(2)
+    }
+
+    metod(arg){
+       let a = 0
+       a = this.number + arg
+       this.loginFormCallback(a)
+    }
+}
+
+let user = new User(6)
+
+user.loginFormCallback =  function(loginData) {
+    console.log(loginData)
+}
     </script>
 </body>
 </html>
